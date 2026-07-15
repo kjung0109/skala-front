@@ -14,6 +14,8 @@
   --color-reset-bg: #e4e8f0;
   --color-reset-bg-hover: #d3d9e6;
   --color-table-border: #d0d7e2;
+  --color-row-alt: #f4f7fd;
+  --color-row-hover: #dfe8fb;
   --color-shadow: rgba(26, 43, 76, 0.08);
   --color-shadow-strong: rgba(26, 43, 76, 0.2);
   --color-invalid: #d32f2f;
@@ -36,6 +38,8 @@
   --color-reset-bg: #2a3350;
   --color-reset-bg-hover: #35406a;
   --color-table-border: #2b3450;
+  --color-row-alt: #202a42;
+  --color-row-hover: #2b3757;
   --color-shadow: rgba(0, 0, 0, 0.4);
   --color-shadow-strong: rgba(0, 0, 0, 0.6);
   --color-invalid: #ff6b6b;
@@ -219,6 +223,17 @@ tbody th {
 
 td {
   background-color: var(--color-card-bg);
+  transition: background-color 0.15s ease;
+}
+
+/* 짝수 행 zebra 스트라이핑 */
+tbody tr:nth-child(even) td {
+  background-color: var(--color-row-alt);
+}
+
+/* 셀(칸) hover 강조 */
+tbody td:hover {
+  background-color: var(--color-row-hover);
 }
 
 /* ===== 회원가입 폼 (signUp.html) ===== */
