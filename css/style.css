@@ -301,6 +301,20 @@ header h1 {
   animation: fadeIn 1s ease;
 }
 
+/* ===== 실시간 날씨 (index.html) ===== */
+#weather-box {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #ffffff;
+  border: 1px solid #dbe2ef;
+  border-radius: 8px;
+}
+
+#weather-box ul {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+}
+
 /* ===== 반응형 웹 디자인 (786px 이하) ===== */
 @media (max-width: 786px) {
   body {
