@@ -4,12 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>나의 여행지</title>
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <button id="theme-toggle" class="theme-toggle" aria-label="다크모드 전환">🌙</button>
   <div class="container">
   <h1>나의 여행 앨범 🌍</h1>
 
@@ -47,5 +53,6 @@
     현재 브라우저는 video 태그를 지원하지 않습니다.
   </video>
   </div>
+  <script src="../script/darkMode.js"></script>
 </body>
 </html>
