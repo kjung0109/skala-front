@@ -1,0 +1,153 @@
+/* ===== 전체 테마 ===== */
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1.7;
+  color: #2b2b2b;
+  background-color: #f7f8fa;
+  margin: 0;
+  padding: 24px;
+}
+
+/* ===== 제목 강조 ===== */
+h1 {
+  color: #1a2b4c;
+  font-size: 2em;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #3a6df0;
+}
+
+h2 {
+  color: #1a2b4c;
+  font-size: 1.4em;
+  padding: 8px 12px;
+  margin-top: 32px;
+  border-left: 5px solid #3a6df0;
+  background-color: #eef2fb;
+}
+
+h3 {
+  color: #24479c;
+}
+
+/* ===== 링크 스타일 ===== */
+a {
+  color: #3a6df0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #24479c;
+  text-decoration: underline;
+}
+
+/* ===== 레이아웃 컨테이너 ===== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ===== 여행 카드 (myTrip.html) ===== */
+.trip-card {
+  background-color: #ffffff;
+  border: 1px solid #dbe2ef;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 0 0 20px 0;
+}
+
+.trip-card img {
+  border-radius: 6px;
+  display: block;
+}
+
+/* ===== 테이블 (myClass.html) ===== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+th,
+td {
+  border: 1px solid #d0d7e2;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+thead th {
+  background-color: #3a6df0;
+  color: #ffffff;
+}
+
+tbody th {
+  background-color: #eef2fb;
+  color: #1a2b4c;
+}
+
+/* ===== 회원가입 폼 (signUp.html) ===== */
+fieldset {
+  border: 1px solid #dbe2ef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+}
+
+legend {
+  padding: 0 10px;
+  font-weight: 700;
+  color: #1a2b4c;
+  font-size: 1.1em;
+}
+
+label {
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  max-width: 360px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  font-family: inherit;
+  font-size: 1em;
+  border: 1px solid #c3ccdb;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3a6df0;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  padding: 12px 24px;
+  margin-right: 10px;
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  background-color: #3a6df0;
+  color: #ffffff;
+}
+
+input[type="reset"] {
+  background-color: #e4e8f0;
+  color: #2b2b2b;
+}

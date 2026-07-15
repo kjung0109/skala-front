@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>나의 여행지</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <div class="container">
   <h1>나의 여행 앨범 🌍</h1>
 
   <h2>여행 배경 음악 🎵</h2>
@@ -15,19 +20,19 @@
   </audio>
 
   <h2>여행 사진</h2>
-  <p>
+  <p class="trip-card">
     <img src="../media/photo1.jpg" alt="뉴욕 스카이라인" width="400">
     <br>
     뉴욕 (2024년)<br>
     <small>사진: Dllu, Wikimedia Commons (CC BY-SA 4.0)</small>
   </p>
-  <p>
+  <p class="trip-card">
     <img src="../media/photo2.jpg" alt="LA 다운타운 야경" width="400">
     <br>
     LA (2020년)<br>
     <small>사진: Camiloarenivar, Wikimedia Commons (CC BY-SA 4.0)</small>
   </p>
-  <p>
+  <p class="trip-card">
     <img src="../media/photo3.jpg" alt="라스베가스 스트립 야경" width="400">
     <br>
     라스베가스 (2024년)<br>
@@ -39,5 +44,6 @@
     <source src="../media/trip-vlog.mp4" type="video/mp4">
     현재 브라우저는 video 태그를 지원하지 않습니다.
   </video>
+  </div>
 </body>
 </html>
