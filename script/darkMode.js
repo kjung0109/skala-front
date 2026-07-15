@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateIcon() {
     const isDark = root.getAttribute("data-theme") === "dark";
     toggleBtn.textContent = isDark ? "☀️" : "🌙";
+    toggleBtn.setAttribute("aria-pressed", isDark ? "true" : "false");
+    toggleBtn.setAttribute(
+      "aria-label",
+      isDark ? "라이트 모드로 전환" : "다크 모드로 전환"
+    );
   }
 
   toggleBtn.addEventListener("click", function () {
