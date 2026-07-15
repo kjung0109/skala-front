@@ -35,12 +35,13 @@
         <label for="userEmail">이메일: </label>
         <input type="text" id="userEmail" name="userEmail" placeholder="example">
         @
-        <select name="emailDomain">
+        <select id="emailDomain" name="emailDomain">
           <option value="direct">직접 입력</option>
           <option value="naver.com">naver.com</option>
           <option value="gmail.com">gmail.com</option>
           <option value="daum.net">daum.net</option>
         </select>
+        <input type="text" id="customDomain" name="customDomain" placeholder="도메인을 입력하세요 (예: mycompany.com)">
         <br>
         <small id="userEmail-feedback" class="field-feedback"></small>
       </p>

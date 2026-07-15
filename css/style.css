@@ -315,6 +315,10 @@ header h1 {
   padding-left: 20px;
 }
 
+.hidden {
+  display: none;
+}
+
 /* ===== 실시간 유효성 검사 (signUp.html) ===== */
 .field-feedback {
   display: inline-block;

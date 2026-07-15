@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const userPw = document.getElementById("userPw");
   const userName = document.getElementById("userName");
   const userEmail = document.getElementById("userEmail");
+  const emailDomain = document.getElementById("emailDomain");
+  const customDomain = document.getElementById("customDomain");
 
   const userIdFeedback = document.getElementById("userId-feedback");
   const userPwFeedback = document.getElementById("userPw-feedback");
@@ -13,7 +15,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const idPattern = /^[A-Za-z0-9]{4,15}$/;
   const emailLocalPattern = /^[A-Za-z0-9._-]+$/;
+  const domainPattern = /^[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   const minPasswordLength = 8;
+
+  function toggleCustomDomain() {
+    if (emailDomain.value === "direct") {
+      customDomain.classList.remove("hidden");
+    } else {
+      customDomain.classList.add("hidden");
+      customDomain.value = "";
+    }
+  }
+
+  toggleCustomDomain();
+  emailDomain.addEventListener("change", function () {
+    toggleCustomDomain();
+    validateUserEmail();
+  });
+  customDomain.addEventListener("input", validateUserEmail);
 
   function setFeedback(input, feedbackEl, isValid, message) {
     feedbackEl.textContent = message;
@@ -81,14 +100,22 @@ document.addEventListener("DOMContentLoaded", function () {
       setFeedback(userEmail, userEmailFeedback, false, "");
       return true; // 이메일은 선택 입력 항목
     }
-    const isValid = emailLocalPattern.test(value);
-    setFeedback(
-      userEmail,
-      userEmailFeedback,
-      isValid,
-      isValid ? "사용 가능한 형식입니다. ✅" : "영문, 숫자, . _ - 만 사용 가능합니다. ❌"
-    );
-    return isValid;
+
+    if (!emailLocalPattern.test(value)) {
+      setFeedback(userEmail, userEmailFeedback, false, "영문, 숫자, . _ - 만 사용 가능합니다. ❌");
+      return false;
+    }
+
+    if (emailDomain.value === "direct") {
+      const domainValue = customDomain.value.trim();
+      if (domainValue === "" || !domainPattern.test(domainValue)) {
+        setFeedback(userEmail, userEmailFeedback, false, "도메인을 올바르게 입력해 주세요. (예: mycompany.com) ❌");
+        return false;
+      }
+    }
+
+    setFeedback(userEmail, userEmailFeedback, true, "사용 가능한 형식입니다. ✅");
+    return true;
   }
 
   userId.addEventListener("input", validateUserId);
