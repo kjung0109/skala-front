@@ -315,6 +315,30 @@ header h1 {
   padding-left: 20px;
 }
 
+/* ===== 실시간 유효성 검사 (signUp.html) ===== */
+.field-feedback {
+  display: inline-block;
+  margin-top: 4px;
+  min-height: 1.1em;
+  font-size: 0.85em;
+}
+
+.field-feedback.invalid {
+  color: #d32f2f;
+}
+
+.field-feedback.valid {
+  color: #2e7d32;
+}
+
+input.invalid {
+  border-color: #d32f2f !important;
+}
+
+input.valid {
+  border-color: #2e7d32 !important;
+}
+
 /* ===== 반응형 웹 디자인 (786px 이하) ===== */
 @media (max-width: 786px) {
   body {

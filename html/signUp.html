@@ -21,11 +21,15 @@
         <label for="userId">아이디: </label>
         <input type="text" id="userId" name="userId" minlength="4" maxlength="15" required placeholder="4~15자 영문/숫자">
         <small>(필수)</small>
+        <br>
+        <small id="userId-feedback" class="field-feedback"></small>
       </p>
       <p>
         <label for="userPw">비밀번호: </label>
         <input type="password" id="userPw" name="userPw" minlength="8" required placeholder="8자 이상 입력">
         <small>(필수)</small>
+        <br>
+        <small id="userPw-feedback" class="field-feedback"></small>
       </p>
       <p>
         <label for="userEmail">이메일: </label>
@@ -37,6 +41,8 @@
           <option value="gmail.com">gmail.com</option>
           <option value="daum.net">daum.net</option>
         </select>
+        <br>
+        <small id="userEmail-feedback" class="field-feedback"></small>
       </p>
     </fieldset>
 
@@ -45,10 +51,12 @@
       <p>
         <label for="userName">이름: </label>
         <input type="text" id="userName" name="userName" required placeholder="이름을 입력하세요">
+        <br>
+        <small id="userName-feedback" class="field-feedback"></small>
       </p>
       <p>
         <label for="userBirth">생년월일: </label>
-        <input type="date" id="userBirth" name="userBirth">
+        <input type="date" id="userBirth" name="userBirth" min="1900-01-01" max="2026-07-15">
       </p>
       <p>
         성별:
@@ -88,5 +96,6 @@
     <input type="reset" value="다시 작성">
   </form>
   </div>
+  <script src="../script/signUpValidation.js"></script>
 </body>
 </html>
