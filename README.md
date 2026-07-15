@@ -5,8 +5,6 @@ SKALA Full-Stack Engineering 과정의 **HTML / CSS / JavaScript** 종합 실습
 
 ## 📸 미리보기
 
-> 아래 이미지는 캡처 후 `docs/` 폴더에 넣으면 표시됩니다.
-
 | 메인 (라이트) | 메인 (다크) |
 | --- | --- |
 | ![메인 라이트 모드](./docs/screenshot-main-light.png) | ![메인 다크 모드](./docs/screenshot-main-dark.png) |
