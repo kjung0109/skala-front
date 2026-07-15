@@ -172,6 +172,25 @@ input[type="reset"]:hover {
   background-color: #d3d9e6;
 }
 
+/* ===== 버튼 (미니 게임 등) ===== */
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: 700;
+  font-family: inherit;
+  color: #ffffff;
+  background-color: #3a6df0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #2451c9;
+  transform: translateY(-2px);
+}
+
 /* ===== 바로가기 메뉴 Flexbox (index.html) ===== */
 nav ul {
   display: flex;
@@ -202,34 +221,48 @@ nav a:hover {
   margin: 24px 0;
 }
 
-/* ===== main/aside 가로 배치 (index.html) ===== */
+/* ===== main/side-column 가로 배치 (index.html) ===== */
 .content-layout {
   display: flex;
   gap: 24px;
   align-items: stretch;
 }
 
-.content-layout main,
-.content-layout aside {
+.content-layout main {
+  flex: 3;
+  min-width: 0;
   background-color: #ffffff;
+  border: 1px solid #dbe2ef;
   border-radius: 10px;
   padding: 16px;
 }
 
-.content-layout main {
-  flex: 3;
-  min-width: 0;
-  border: 1px solid #dbe2ef;
-}
-
-.content-layout aside {
+.side-column {
   flex: 1;
   min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.side-column aside,
+.side-column .game-section {
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.side-column aside {
   background-color: #eef2fb;
 }
 
+.side-column .game-section {
+  background-color: #ffffff;
+  border: 1px solid #dbe2ef;
+}
+
 .content-layout main h2,
-.content-layout aside h2 {
+.side-column aside h2,
+.side-column .game-section h2 {
   margin-top: 0;
 }
 
