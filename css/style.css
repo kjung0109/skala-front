@@ -34,6 +34,7 @@ h3 {
 a {
   color: #3a6df0;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
@@ -55,6 +56,13 @@ a:hover {
   border-radius: 10px;
   padding: 16px;
   margin: 0 0 20px 0;
+  box-shadow: 0 2px 6px rgba(26, 43, 76, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trip-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(26, 43, 76, 0.18);
 }
 
 .trip-card img {
@@ -142,6 +150,7 @@ input[type="reset"] {
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 input[type="submit"] {
@@ -149,9 +158,18 @@ input[type="submit"] {
   color: #ffffff;
 }
 
+input[type="submit"]:hover {
+  background-color: #2451c9;
+  transform: translateY(-2px);
+}
+
 input[type="reset"] {
   background-color: #e4e8f0;
   color: #2b2b2b;
+}
+
+input[type="reset"]:hover {
+  background-color: #d3d9e6;
 }
 
 /* ===== 바로가기 메뉴 Flexbox (index.html) ===== */
@@ -161,6 +179,20 @@ nav ul {
   gap: 12px 20px;
   list-style: none;
   padding: 0;
+}
+
+nav a {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background-color: #eef2fb;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #3a6df0;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* ===== 메뉴 하단 구분선 (index.html) ===== */
@@ -210,6 +242,22 @@ nav ul {
 
 .trip-gallery .trip-card {
   margin: 0;
+}
+
+/* ===== 헤더 등장 애니메이션 (index.html) ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header h1 {
+  animation: fadeIn 1s ease;
 }
 
 /* ===== 반응형 웹 디자인 (786px 이하) ===== */
