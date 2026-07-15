@@ -40,3 +40,48 @@ a:hover {
   color: #24479c;
   text-decoration: underline;
 }
+
+/* ===== 레이아웃 컨테이너 ===== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ===== 여행 카드 (myTrip.html) ===== */
+.trip-card {
+  background-color: #ffffff;
+  border: 1px solid #dbe2ef;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 0 0 20px 0;
+}
+
+.trip-card img {
+  border-radius: 6px;
+  display: block;
+}
+
+/* ===== 테이블 (myClass.html) ===== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+th,
+td {
+  border: 1px solid #d0d7e2;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+thead th {
+  background-color: #3a6df0;
+  color: #ffffff;
+}
+
+tbody th {
+  background-color: #eef2fb;
+  color: #1a2b4c;
+}
