@@ -258,6 +258,14 @@ nav a:hover {
 .side-column .game-section {
   background-color: #ffffff;
   border: 1px solid #dbe2ef;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.side-column .game-section h2 {
+  width: 100%;
 }
 
 .content-layout main h2,
