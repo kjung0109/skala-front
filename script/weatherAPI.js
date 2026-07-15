@@ -17,7 +17,16 @@ export async function fetchWeather(lat, lon) {
     "&timezone=auto";
 
   const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error("날씨 API 응답 오류 (상태 코드: " + response.status + ")");
+  }
+
   const data = await response.json();
+
+  if (!data.current) {
+    throw new Error("날씨 데이터 형식이 올바르지 않습니다.");
+  }
 
   return {
     time: data.current.time,
