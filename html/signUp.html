@@ -18,69 +18,82 @@
 <body>
   <button id="theme-toggle" class="theme-toggle" aria-label="다크모드 전환">🌙</button>
   <div class="container">
-  <h1>회원가입</h1>
-  <p>SKALA-FRONT 회원가입을 환영합니다.</p>
+  <header class="signup-hero">
+    <div class="signup-hero-icon">📝</div>
+    <h1>회원가입</h1>
+    <p>SKALA-FRONT의 멤버가 되어보세요.<br>아래 정보를 입력하고 함께 시작해요! 🚀</p>
+  </header>
 
-  <form action="signUpResult.html" method="get">
+  <form action="signUpResult.html" method="get" class="signup-form">
     <fieldset>
-      <legend>계정 정보</legend>
-      <p>
-        <label for="userId">아이디: </label>
-        <input type="text" id="userId" name="userId" minlength="4" maxlength="15" required placeholder="4~15자 영문/숫자">
-        <small>(필수)</small>
-        <br>
+      <legend>🔑 계정 정보</legend>
+      <div class="form-group">
+        <label for="userId">아이디 <span class="required">(필수)</span></label>
+        <div class="input-wrap">
+          <input type="text" id="userId" name="userId" minlength="4" maxlength="15" required placeholder="4~15자 영문/숫자">
+          <span class="field-status" id="userId-status" aria-hidden="true"></span>
+        </div>
         <small id="userId-feedback" class="field-feedback"></small>
-      </p>
-      <p>
-        <label for="userPw">비밀번호: </label>
-        <input type="password" id="userPw" name="userPw" minlength="8" required placeholder="8자 이상 입력">
-        <small>(필수)</small>
-        <br>
+      </div>
+      <div class="form-group">
+        <label for="userPw">비밀번호 <span class="required">(필수)</span></label>
+        <div class="input-wrap has-toggle">
+          <input type="password" id="userPw" name="userPw" minlength="8" required placeholder="8자 이상 입력">
+          <span class="field-status" id="userPw-status" aria-hidden="true"></span>
+          <button type="button" class="pw-toggle" id="pwToggle" aria-label="비밀번호 표시">👁️</button>
+        </div>
         <small id="userPw-feedback" class="field-feedback"></small>
-      </p>
-      <p>
-        <label for="userEmail">이메일: </label>
-        <input type="text" id="userEmail" name="userEmail" placeholder="example">
-        @
-        <select id="emailDomain" name="emailDomain">
-          <option value="direct">직접 입력</option>
-          <option value="naver.com">naver.com</option>
-          <option value="gmail.com">gmail.com</option>
-          <option value="daum.net">daum.net</option>
-        </select>
-        <input type="text" id="customDomain" name="customDomain" placeholder="도메인을 입력하세요 (예: mycompany.com)">
-        <br>
+      </div>
+      <div class="form-group">
+        <label for="userEmail">이메일</label>
+        <div class="email-row">
+          <input type="text" id="userEmail" name="userEmail" placeholder="example">
+          <span class="email-at">@</span>
+          <select id="emailDomain" name="emailDomain">
+            <option value="direct">직접 입력</option>
+            <option value="naver.com">naver.com</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="daum.net">daum.net</option>
+          </select>
+          <input type="text" id="customDomain" name="customDomain" placeholder="도메인 입력 (예: mycompany.com)">
+        </div>
         <small id="userEmail-feedback" class="field-feedback"></small>
-      </p>
+      </div>
     </fieldset>
 
     <fieldset>
-      <legend>개인 프로필 정보</legend>
-      <p>
-        <label for="userName">이름: </label>
-        <input type="text" id="userName" name="userName" required placeholder="이름을 입력하세요">
-        <br>
+      <legend>👤 개인 프로필 정보</legend>
+      <div class="form-group">
+        <label for="userName">이름 <span class="required">(필수)</span></label>
+        <div class="input-wrap">
+          <input type="text" id="userName" name="userName" required placeholder="이름을 입력하세요">
+          <span class="field-status" id="userName-status" aria-hidden="true"></span>
+        </div>
         <small id="userName-feedback" class="field-feedback"></small>
-      </p>
-      <p>
-        <label for="userBirth">생년월일: </label>
+      </div>
+      <div class="form-group">
+        <label for="userBirth">생년월일</label>
         <input type="date" id="userBirth" name="userBirth" min="1900-01-01" max="2026-07-15">
-      </p>
-      <p>
-        성별:
-        <label><input type="radio" name="gender" value="male" checked> 남성</label>
-        <label><input type="radio" name="gender" value="female"> 여성</label>
-        <label><input type="radio" name="gender" value="none"> 선택안함</label>
-      </p>
-      <p>
-        관심 분야 (중복 선택 가능): <br>
-        <label><input type="checkbox" name="interest" value="frontend"> 웹 프론트엔드 (HTML/CSS/JavaScript)</label><br>
-        <label><input type="checkbox" name="interest" value="backend"> 백엔드 & 데이터베이스</label><br>
-        <label><input type="checkbox" name="interest" value="data"> 데이터 분석 & Python</label><br>
-        <label><input type="checkbox" name="interest" value="finance"> 금융 IT & 핀테크</label>
-      </p>
-      <p>
-        <label for="referral">가입 경로: </label>
+      </div>
+      <div class="form-group">
+        <span class="group-label">성별</span>
+        <div class="option-row">
+          <label class="option"><input type="radio" name="gender" value="male" checked> 남성</label>
+          <label class="option"><input type="radio" name="gender" value="female"> 여성</label>
+          <label class="option"><input type="radio" name="gender" value="none"> 선택안함</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <span class="group-label">관심 분야 <small>(중복 선택 가능)</small></span>
+        <div class="option-column">
+          <label class="option"><input type="checkbox" name="interest" value="frontend"> 웹 프론트엔드 (HTML/CSS/JavaScript)</label>
+          <label class="option"><input type="checkbox" name="interest" value="backend"> 백엔드 &amp; 데이터베이스</label>
+          <label class="option"><input type="checkbox" name="interest" value="data"> 데이터 분석 &amp; Python</label>
+          <label class="option"><input type="checkbox" name="interest" value="finance"> 금융 IT &amp; 핀테크</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="referral">가입 경로</label>
         <select id="referral" name="referral">
           <option value="">-- 선택해 주세요 --</option>
           <option value="friend">지인 추천</option>
@@ -88,23 +101,26 @@
           <option value="search">검색</option>
           <option value="etc">기타</option>
         </select>
-      </p>
+      </div>
     </fieldset>
 
     <fieldset>
-      <legend>자기소개</legend>
-      <p>
-        <label for="intro">나를 표현하는 한 줄 소개 또는 가입 인사:</label><br>
-        <textarea id="intro" name="intro" rows="5" cols="50" placeholder="여기에 내용을 입력하세요 (최대 200자)"></textarea>
-      </p>
+      <legend>✍️ 자기소개</legend>
+      <div class="form-group">
+        <label for="intro">나를 표현하는 한 줄 소개 또는 가입 인사</label>
+        <textarea id="intro" name="intro" rows="5" maxlength="200" placeholder="여기에 내용을 입력하세요 (최대 200자)"></textarea>
+        <small class="char-counter"><span id="intro-count">0</span> / 200</small>
+      </div>
     </fieldset>
 
-    <br>
-    <input type="submit" value="동의하고 회원가입">
-    <input type="reset" value="다시 작성">
+    <div class="form-actions">
+      <input type="submit" value="동의하고 회원가입">
+      <input type="reset" value="다시 작성">
+    </div>
   </form>
   </div>
   <script src="../script/signUpValidation.js"></script>
+  <script src="../script/signUpEnhance.js"></script>
   <script src="../script/darkMode.js"></script>
 </body>
 </html>
