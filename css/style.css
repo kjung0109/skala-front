@@ -60,6 +60,8 @@ a:hover {
 .trip-card img {
   border-radius: 6px;
   display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ===== 테이블 (myClass.html) ===== */
@@ -150,4 +152,62 @@ input[type="submit"] {
 input[type="reset"] {
   background-color: #e4e8f0;
   color: #2b2b2b;
+}
+
+/* ===== 바로가기 메뉴 Flexbox (index.html) ===== */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  list-style: none;
+  padding: 0;
+}
+
+/* ===== 메뉴 하단 구분선 (index.html) ===== */
+.nav-divider {
+  border: none;
+  border-top: 3px solid #3a6df0;
+  margin: 24px 0;
+}
+
+/* ===== main/aside 가로 배치 (index.html) ===== */
+.content-layout {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.content-layout main,
+.content-layout aside {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.content-layout main {
+  flex: 3;
+  min-width: 0;
+  border: 1px solid #dbe2ef;
+}
+
+.content-layout aside {
+  flex: 1;
+  min-width: 220px;
+  background-color: #eef2fb;
+}
+
+.content-layout main h2,
+.content-layout aside h2 {
+  margin-top: 0;
+}
+
+/* ===== 여행 사진 Grid (myTrip.html) ===== */
+.trip-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.trip-gallery .trip-card {
+  margin: 0;
 }
