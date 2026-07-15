@@ -329,39 +329,44 @@ input[type="reset"]:hover {
   background-color: var(--color-reset-bg-hover);
 }
 
-/* ===== 회원가입 히어로 헤더 (signUp.html) ===== */
-.signup-hero {
-  max-width: 520px;
-  margin: 0 auto 24px auto;
-  padding: 32px 24px;
+/* ===== 공통 히어로 헤더 (signUp / myProfile / myHoliday) ===== */
+.hero {
   text-align: center;
+  padding: 34px 24px;
+  margin: 0 auto 24px auto;
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
   border-radius: 16px;
   box-shadow: 0 16px 32px var(--color-shadow-strong);
 }
 
-.signup-hero-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 12px auto;
+/* 폼 폭에 맞춘 좁은 히어로 (signUp) */
+.hero-narrow {
+  max-width: 520px;
+}
+
+.hero-icon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 14px auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2em;
+  font-size: 2.3em;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
 }
 
-.signup-hero h1 {
+.hero h1 {
   color: #ffffff;
   border-bottom: none;
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   padding-bottom: 0;
 }
 
-.signup-hero p {
+.hero p {
   color: rgba(255, 255, 255, 0.92);
-  margin: 0;
+  margin: 0 auto;
+  max-width: 480px;
 }
 
 /* ===== 회원가입 폼 레이아웃 (signUp.html) ===== */
@@ -539,48 +544,13 @@ input[type="reset"]:hover {
   margin-right: 0;
 }
 
-/* ===== 프로필 페이지 (myProfile.html) ===== */
-.profile-container {
+/* ===== 좁은 페이지 컨테이너 (myProfile / myHoliday) ===== */
+.container-narrow {
   max-width: 640px;
 }
 
-/* 프로필 히어로 헤더 */
-.profile-hero {
-  text-align: center;
-  padding: 36px 24px;
-  margin-bottom: 24px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-  border-radius: 16px;
-  box-shadow: 0 16px 32px var(--color-shadow-strong);
-}
-
-.profile-avatar {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 14px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.4em;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-}
-
-.profile-hero h1 {
-  color: #ffffff;
-  border-bottom: none;
-  margin: 0 0 10px 0;
-  padding-bottom: 0;
-}
-
-.profile-hero p {
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0 auto;
-  max-width: 480px;
-}
-
-/* 프로필 섹션 카드 */
-.profile-card {
+/* ===== 공통 섹션 카드 (myProfile / myHoliday) ===== */
+.section-card {
   position: relative;
   overflow: hidden;
   background-color: var(--color-card-bg);
@@ -591,7 +561,7 @@ input[type="reset"]:hover {
   box-shadow: 0 4px 12px var(--color-shadow);
 }
 
-.profile-card::before {
+.section-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -601,7 +571,7 @@ input[type="reset"]:hover {
   background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
 }
 
-.profile-card h2 {
+.section-card h2 {
   margin: 0 0 18px 0;
   padding: 0 0 10px 0;
   background: none;
@@ -610,6 +580,7 @@ input[type="reset"]:hover {
   border-radius: 0;
 }
 
+/* ===== 프로필 리스트 (myProfile.html) ===== */
 /* 좋아하는 음식 - 칩 그리드 */
 .food-list {
   list-style: none;
@@ -696,78 +667,7 @@ input[type="reset"]:hover {
   color: var(--color-text);
 }
 
-/* ===== 휴일 페이지 (myHoliday.html) ===== */
-.holiday-container {
-  max-width: 640px;
-}
-
-/* 휴일 히어로 헤더 */
-.holiday-hero {
-  text-align: center;
-  padding: 36px 24px;
-  margin-bottom: 24px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-  border-radius: 16px;
-  box-shadow: 0 16px 32px var(--color-shadow-strong);
-}
-
-.holiday-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 14px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.4em;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-}
-
-.holiday-hero h1 {
-  color: #ffffff;
-  border-bottom: none;
-  margin: 0 0 10px 0;
-  padding-bottom: 0;
-}
-
-.holiday-hero p {
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0 auto;
-  max-width: 480px;
-}
-
-/* 시간대별 카드 */
-.holiday-card {
-  position: relative;
-  overflow: hidden;
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px var(--color-shadow);
-}
-
-.holiday-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
-}
-
-.holiday-card h2 {
-  margin: 0 0 18px 0;
-  padding: 0 0 10px 0;
-  background: none;
-  border-left: none;
-  border-bottom: 2px solid var(--color-primary);
-  border-radius: 0;
-}
-
-/* 타임라인 */
+/* ===== 휴일 페이지 타임라인 (myHoliday.html) ===== */
 .timeline {
   position: relative;
   margin: 0;
