@@ -211,3 +211,22 @@ nav ul {
 .trip-gallery .trip-card {
   margin: 0;
 }
+
+/* ===== 반응형 웹 디자인 (786px 이하) ===== */
+@media (max-width: 786px) {
+  body {
+    padding: 16px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  .content-layout {
+    flex-direction: column;
+  }
+
+  .trip-gallery {
+    grid-template-columns: 1fr;
+  }
+}
