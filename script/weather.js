@@ -10,6 +10,29 @@ const cityData = {
 const citySelect = document.getElementById("citySelect");
 const weatherBox = document.getElementById("weather-box");
 
+async function loadWeather(city) {
+  weatherBox.innerHTML =
+    "<p><strong>📌 " + city.label + "</strong></p>" +
+    "<p>실시간 날씨 로딩 중... ⏳</p>";
+
+  const url =
+    "https://api.open-meteo.com/v1/forecast?latitude=" +
+    city.lat +
+    "&longitude=" +
+    city.lon +
+    "&current=temperature_2m,relative_humidity_2m";
+
+  const response = await fetch(url);
+  const data = await response.json();
+
+  weatherBox.innerHTML =
+    "<p><strong>📌 " + city.label + " 실시간 날씨</strong></p>" +
+    "<ul>" +
+    "<li>현재 기온: " + data.current.temperature_2m + "°C</li>" +
+    "<li>현재 습도: " + data.current.relative_humidity_2m + "%</li>" +
+    "</ul>";
+}
+
 citySelect.addEventListener("change", function () {
   const selectedCity = citySelect.value;
 
@@ -18,12 +41,5 @@ citySelect.addEventListener("change", function () {
     return;
   }
 
-  const city = cityData[selectedCity];
-
-  weatherBox.innerHTML =
-    "<p><strong>📍 " + city.label + "</strong></p>" +
-    "<ul>" +
-    "<li>위도(Latitude): " + city.lat + "</li>" +
-    "<li>경도(Longitude): " + city.lon + "</li>" +
-    "</ul>";
+  loadWeather(cityData[selectedCity]);
 });
