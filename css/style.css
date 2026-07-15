@@ -1,0 +1,42 @@
+/* ===== 전체 테마 ===== */
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1.7;
+  color: #2b2b2b;
+  background-color: #f7f8fa;
+  margin: 0;
+  padding: 24px;
+}
+
+/* ===== 제목 강조 ===== */
+h1 {
+  color: #1a2b4c;
+  font-size: 2em;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #3a6df0;
+}
+
+h2 {
+  color: #1a2b4c;
+  font-size: 1.4em;
+  padding: 8px 12px;
+  margin-top: 32px;
+  border-left: 5px solid #3a6df0;
+  background-color: #eef2fb;
+}
+
+h3 {
+  color: #24479c;
+}
+
+/* ===== 링크 스타일 ===== */
+a {
+  color: #3a6df0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #24479c;
+  text-decoration: underline;
+}
