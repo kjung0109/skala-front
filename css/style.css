@@ -461,8 +461,9 @@ nav a:hover {
   }
 }
 
-/* ===== 실시간 날씨 (index.html) ===== */
-#weather-box {
+/* ===== 실시간 날씨/시각 (index.html) ===== */
+#weather-box,
+#worldtime-box {
   margin-top: 12px;
   padding: 12px;
   background-color: var(--color-card-bg);
@@ -470,7 +471,8 @@ nav a:hover {
   border-radius: 8px;
 }
 
-#weather-box ul {
+#weather-box ul,
+#worldtime-box ul {
   margin: 8px 0 0 0;
   padding-left: 20px;
 }

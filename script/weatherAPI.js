@@ -13,9 +13,16 @@ export async function fetchWeather(lat, lon) {
     lat +
     "&longitude=" +
     lon +
-    "&current=temperature_2m,relative_humidity_2m";
+    "&current=temperature_2m,relative_humidity_2m" +
+    "&timezone=auto";
 
   const response = await fetch(url);
   const data = await response.json();
-  return data.current;
+
+  return {
+    time: data.current.time,
+    temperature_2m: data.current.temperature_2m,
+    relative_humidity_2m: data.current.relative_humidity_2m,
+    timezone: data.timezone,
+  };
 }
