@@ -696,6 +696,126 @@ input[type="reset"]:hover {
   color: var(--color-text);
 }
 
+/* ===== 휴일 페이지 (myHoliday.html) ===== */
+.holiday-container {
+  max-width: 640px;
+}
+
+/* 휴일 히어로 헤더 */
+.holiday-hero {
+  text-align: center;
+  padding: 36px 24px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  border-radius: 16px;
+  box-shadow: 0 16px 32px var(--color-shadow-strong);
+}
+
+.holiday-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 14px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4em;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.holiday-hero h1 {
+  color: #ffffff;
+  border-bottom: none;
+  margin: 0 0 10px 0;
+  padding-bottom: 0;
+}
+
+.holiday-hero p {
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+/* 시간대별 카드 */
+.holiday-card {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.holiday-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+}
+
+.holiday-card h2 {
+  margin: 0 0 18px 0;
+  padding: 0 0 10px 0;
+  background: none;
+  border-left: none;
+  border-bottom: 2px solid var(--color-primary);
+  border-radius: 0;
+}
+
+/* 타임라인 */
+.timeline {
+  position: relative;
+  margin: 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding-bottom: 18px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-time {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 60px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #ffffff;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85em;
+}
+
+.timeline-desc {
+  margin: 0;
+  padding-top: 3px;
+}
+
 /* ===== 버튼 (미니 게임 등) ===== */
 button {
   padding: 10px 20px;
