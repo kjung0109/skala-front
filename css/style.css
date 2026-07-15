@@ -149,7 +149,6 @@ header p {
 
 /* ===== 카드 공통 상단 그라데이션 바 ===== */
 .trip-card,
-fieldset,
 .side-column aside,
 .side-column .game-section,
 .content-layout main {
@@ -158,7 +157,6 @@ fieldset,
 }
 
 .trip-card::before,
-fieldset::before,
 .side-column aside::before,
 .side-column .game-section::before,
 .content-layout main::before {
@@ -247,10 +245,20 @@ fieldset {
 }
 
 legend {
-  padding: 0 10px;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 0 12px 0;
+  margin-bottom: 18px;
+  border-bottom: 2px solid var(--color-primary);
   font-weight: 700;
   color: var(--color-heading);
   font-size: 1.1em;
+}
+
+/* legend를 float으로 정상 흐름에 넣은 뒤 본문이 아래로 오도록 */
+legend + * {
+  clear: left;
 }
 
 label {
@@ -319,6 +327,216 @@ input[type="reset"] {
 
 input[type="reset"]:hover {
   background-color: var(--color-reset-bg-hover);
+}
+
+/* ===== 회원가입 히어로 헤더 (signUp.html) ===== */
+.signup-hero {
+  max-width: 520px;
+  margin: 0 auto 24px auto;
+  padding: 32px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  border-radius: 16px;
+  box-shadow: 0 16px 32px var(--color-shadow-strong);
+}
+
+.signup-hero-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.signup-hero h1 {
+  color: #ffffff;
+  border-bottom: none;
+  margin: 0 0 8px 0;
+  padding-bottom: 0;
+}
+
+.signup-hero p {
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+}
+
+/* ===== 회원가입 폼 레이아웃 (signUp.html) ===== */
+.signup-form {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label,
+.form-group .group-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+.form-group .required {
+  color: var(--color-invalid);
+  font-size: 0.85em;
+  font-weight: 400;
+}
+
+/* 폼 내 입력 요소는 카드 폭에 맞춰 꽉 차게 */
+.signup-form input[type="text"],
+.signup-form input[type="password"],
+.signup-form input[type="date"],
+.signup-form select,
+.signup-form textarea {
+  max-width: 100%;
+  margin-top: 0;
+}
+
+.signup-form textarea {
+  resize: vertical;
+}
+
+/* 입력창 + 아이콘 래퍼 */
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap input {
+  padding-right: 38px;
+}
+
+.input-wrap.has-toggle input {
+  padding-right: 68px;
+}
+
+/* 입력창 안쪽 ✓/✗ 상태 아이콘 */
+.field-status {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.input-wrap.has-toggle .field-status {
+  right: 42px;
+}
+
+.field-status.valid {
+  color: var(--color-valid);
+}
+
+.field-status.invalid {
+  color: var(--color-invalid);
+}
+
+/* 비밀번호 표시/숨김 토글 */
+.pw-toggle {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 1em;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.pw-toggle:hover {
+  background-color: var(--color-aside-bg);
+  transform: translateY(-50%);
+  box-shadow: none;
+}
+
+/* 자기소개 글자 수 카운터 */
+.char-counter {
+  display: block;
+  margin-top: 4px;
+  text-align: right;
+  font-size: 0.85em;
+  color: var(--color-heading-accent);
+}
+
+/* 이메일 한 줄 배치 */
+.email-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.email-row .email-at {
+  color: var(--color-heading-accent);
+  font-weight: 700;
+}
+
+.email-row #userEmail {
+  flex: 1 1 120px;
+}
+
+.email-row #emailDomain {
+  flex: 0 1 auto;
+  width: auto;
+}
+
+.email-row #customDomain {
+  flex: 1 1 100%;
+}
+
+/* 라디오 / 체크박스 그룹 */
+.option-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.option-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.option input {
+  width: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* 제출 / 초기화 버튼 영역 */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.form-actions input {
+  flex: 1;
+  margin-right: 0;
 }
 
 /* ===== 버튼 (미니 게임 등) ===== */

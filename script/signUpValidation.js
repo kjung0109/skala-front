@@ -39,16 +39,31 @@ document.addEventListener("DOMContentLoaded", function () {
     feedbackEl.classList.remove("valid", "invalid");
     input.classList.remove("valid", "invalid");
 
+    // 입력창 안쪽 ✓/✗ 상태 아이콘 (존재하는 필드만)
+    const statusEl = document.getElementById(input.id + "-status");
+
     if (message === "") {
+      if (statusEl) {
+        statusEl.textContent = "";
+        statusEl.className = "field-status";
+      }
       return;
     }
 
     if (isValid) {
       feedbackEl.classList.add("valid");
       input.classList.add("valid");
+      if (statusEl) {
+        statusEl.textContent = "✓";
+        statusEl.className = "field-status valid";
+      }
     } else {
       feedbackEl.classList.add("invalid");
       input.classList.add("invalid");
+      if (statusEl) {
+        statusEl.textContent = "✗";
+        statusEl.className = "field-status invalid";
+      }
     }
   }
 
