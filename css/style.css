@@ -1013,8 +1013,13 @@ button:hover {
 .weather-main {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6b7a90, #97a6ba);
+  box-shadow: 0 4px 10px var(--color-shadow);
 }
 
 .weather-main-icon {
@@ -1023,8 +1028,32 @@ button:hover {
 }
 
 .weather-main-text {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* 날씨 상태·낮밤에 따른 배경 그라데이션 */
+.weather-main.sky-clear-day {
+  background: linear-gradient(135deg, #4a90e2, #67c1f5);
+}
+.weather-main.sky-clear-night {
+  background: linear-gradient(135deg, #1e2a52, #3a4780);
+}
+.weather-main.sky-cloud {
+  background: linear-gradient(135deg, #6b7a90, #97a6ba);
+}
+.weather-main.sky-fog {
+  background: linear-gradient(135deg, #8a94a3, #aeb6c2);
+}
+.weather-main.sky-rain {
+  background: linear-gradient(135deg, #445c7a, #6b8299);
+}
+.weather-main.sky-snow {
+  background: linear-gradient(135deg, #5d86b3, #9cbfe0);
+}
+.weather-main.sky-storm {
+  background: linear-gradient(135deg, #34344e, #565676);
 }
 
 .stat-grid {

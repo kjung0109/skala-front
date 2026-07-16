@@ -34,6 +34,18 @@ function describeWeather(code, isDay) {
   return table[code] || { icon: "🌡️", text: "정보 없음" };
 }
 
+// WMO 코드와 낮/밤을 배경 그라데이션용 카테고리 클래스로 변환
+function weatherCategory(code, isDay) {
+  if (code === 0 || code === 1) return isDay ? "sky-clear-day" : "sky-clear-night";
+  if (code === 2 || code === 3) return "sky-cloud";
+  if (code === 45 || code === 48) return "sky-fog";
+  if (code >= 71 && code <= 77) return "sky-snow";
+  if (code === 85 || code === 86) return "sky-snow";
+  if (code >= 95) return "sky-storm";
+  if (code >= 51 && code <= 82) return "sky-rain";
+  return "sky-cloud";
+}
+
 const citySelect = document.getElementById("citySelect");
 const weatherBox = document.getElementById("weather-box");
 const worldtimeBox = document.getElementById("worldtime-box");
@@ -83,10 +95,11 @@ async function showWeather(cityKey) {
     const current = await fetchWeather(city.lat, city.lon);
     const [localDate, localTime] = current.time.split("T");
     const sky = describeWeather(current.weather_code, current.is_day);
+    const skyClass = weatherCategory(current.weather_code, current.is_day);
 
     weatherBox.innerHTML =
       "<p class=\"info-city\">📌 " + city.label + " 실시간 날씨</p>" +
-      "<div class=\"weather-main\">" +
+      "<div class=\"weather-main " + skyClass + "\">" +
       "<span class=\"weather-main-icon\">" + sky.icon + "</span>" +
       "<span class=\"weather-main-text\">" + sky.text + "</span>" +
       "</div>" +
