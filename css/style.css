@@ -2,6 +2,7 @@
 :root {
   --color-bg: #f7f8fa;
   --color-text: #2b2b2b;
+  --color-text-muted: #6b7280;
   --color-heading: #1a2b4c;
   --color-heading-accent: #24479c;
   --color-primary: #3a6df0;
@@ -26,6 +27,7 @@
 :root[data-theme="dark"] {
   --color-bg: #0f1420;
   --color-text: #dfe4f0;
+  --color-text-muted: #9aa4bd;
   --color-heading: #f3f5fb;
   --color-heading-accent: #9db4f5;
   --color-primary: #5b8dff;
@@ -957,11 +959,85 @@ button:hover {
   margin-top: 0;
 }
 
-/* ===== 실시간 날씨 상태 ===== */
-.weather-condition {
-  margin: 8px 0;
-  font-size: 1.15rem;
+/* ===== 실시간 정보 위젯 ===== */
+.info-city {
+  margin: 0 0 10px;
   font-weight: 700;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.weather-main-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.weather-main-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 8px;
+  border-radius: 10px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+}
+
+.stat-tile-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.stat-tile-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.stat-tile-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.time-display {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.time-big {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.time-date {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.time-zone {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
 }
 
 /* ===== 이달의 베스트 컷 캐러셀 (index.html) ===== */

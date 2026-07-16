@@ -52,19 +52,31 @@ async function showWeather(cityKey) {
     const sky = describeWeather(current.weather_code, current.is_day);
 
     weatherBox.innerHTML =
-      "<p><strong>📌 " + city.label + " 실시간 날씨</strong></p>" +
-      "<p class=\"weather-condition\">" + sky.icon + " " + sky.text + "</p>" +
-      "<ul>" +
-      "<li>현재 기온: " + current.temperature_2m + "°C</li>" +
-      "<li>현재 습도: " + current.relative_humidity_2m + "%</li>" +
-      "</ul>";
+      "<p class=\"info-city\">📌 " + city.label + " 실시간 날씨</p>" +
+      "<div class=\"weather-main\">" +
+      "<span class=\"weather-main-icon\">" + sky.icon + "</span>" +
+      "<span class=\"weather-main-text\">" + sky.text + "</span>" +
+      "</div>" +
+      "<div class=\"stat-grid\">" +
+      "<div class=\"stat-tile\">" +
+      "<span class=\"stat-tile-icon\">🌡️</span>" +
+      "<span class=\"stat-tile-value\">" + current.temperature_2m + "°C</span>" +
+      "<span class=\"stat-tile-label\">기온</span>" +
+      "</div>" +
+      "<div class=\"stat-tile\">" +
+      "<span class=\"stat-tile-icon\">💧</span>" +
+      "<span class=\"stat-tile-value\">" + current.relative_humidity_2m + "%</span>" +
+      "<span class=\"stat-tile-label\">습도</span>" +
+      "</div>" +
+      "</div>";
 
     worldtimeBox.innerHTML =
-      "<p><strong>🕐 " + city.label + " 현지 시각</strong></p>" +
-      "<ul>" +
-      "<li>" + localDate + " " + localTime + "</li>" +
-      "<li>시간대: " + current.timezone + "</li>" +
-      "</ul>";
+      "<p class=\"info-city\">🕐 " + city.label + " 현지 시각</p>" +
+      "<div class=\"time-display\">" +
+      "<span class=\"time-big\">" + localTime + "</span>" +
+      "<span class=\"time-date\">" + localDate + "</span>" +
+      "</div>" +
+      "<p class=\"time-zone\">🌐 " + current.timezone + "</p>";
   } catch (error) {
     console.error("날씨 정보를 불러오지 못했습니다:", error);
     weatherBox.innerHTML =
