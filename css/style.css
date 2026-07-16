@@ -870,6 +870,40 @@ button:hover {
   transform: scale(1.12) rotate(12deg);
 }
 
+/* ===== 맨 위로 버튼 ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  box-shadow: 0 6px 16px var(--color-shadow-strong);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.2s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px var(--color-shadow-strong);
+}
+
 /* ===== 스탯 요약 스트립 (index.html) ===== */
 .stats-strip {
   display: flex;
@@ -1424,5 +1458,13 @@ input.valid {
     width: 40px;
     height: 40px;
     font-size: 1.1em;
+  }
+
+  .back-to-top {
+    bottom: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
   }
 }
