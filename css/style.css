@@ -1457,13 +1457,14 @@ button:hover {
 .today-schedule {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 26px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .today-schedule li {
+  position: relative;
   display: flex;
   align-items: baseline;
   gap: 14px;
@@ -1471,6 +1472,52 @@ button:hover {
   border-radius: 10px;
   background-color: var(--color-aside-bg);
   border: 1px solid var(--color-border);
+}
+
+/* 타임라인 점 (li 기준). border 2px 포함 실제 너비 16px → 중심이 left+8 */
+.today-schedule li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-primary);
+  z-index: 1;
+}
+
+/* 다음 점까지 잇는 세로 연결선 (점과 동일하게 li 기준 → 항상 정렬) */
+.today-schedule li::after {
+  content: "";
+  position: absolute;
+  left: -17px;
+  top: 50%;
+  width: 2px;
+  height: calc(100% + 8px);
+  background-color: var(--color-border);
+  z-index: 0;
+}
+
+.today-schedule li:last-child::after {
+  display: none;
+}
+
+/* 진행 중인 일정은 점을 채움 */
+.today-schedule li.is-now::before {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-row-hover);
+}
+
+/* 일정 없음/로딩 상태에서는 점·연결선 숨김 */
+.today-schedule:has(.ts-empty) {
+  padding-left: 0;
+}
+.today-schedule li.ts-empty::before,
+.today-schedule li.ts-empty::after {
+  display: none;
 }
 
 .today-schedule .ts-time {
