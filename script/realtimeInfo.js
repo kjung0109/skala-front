@@ -49,3 +49,8 @@ citySelect.addEventListener("change", function () {
 
   showWeather(selectedCity);
 });
+
+// 페이지 로드 시 기본 도시(서울) 날씨를 자동으로 표시
+const defaultCity = "seoul";
+citySelect.value = defaultCity;
+showWeather(defaultCity);
