@@ -696,6 +696,55 @@ input[type="reset"]:hover {
   color: var(--color-text);
 }
 
+/* ===== 회원가입 완료 페이지 (signUpResult.html) ===== */
+/* 안내 사항 체크 리스트 */
+.notice-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notice-list li {
+  position: relative;
+  padding: 8px 0 8px 30px;
+}
+
+.notice-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: var(--color-valid);
+  font-weight: 700;
+}
+
+/* 이동 링크 - 버튼형 그리드 */
+.result-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.result-links a {
+  display: block;
+  padding: 14px 16px;
+  text-align: center;
+  background-color: var(--color-aside-bg);
+  color: var(--color-heading);
+  border-radius: 10px;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-links a:hover {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px var(--color-shadow);
+}
+
 /* ===== 휴일 페이지 타임라인 (myHoliday.html) ===== */
 .timeline {
   position: relative;
@@ -975,6 +1024,10 @@ input.valid {
   }
 
   .trip-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .result-links {
     grid-template-columns: 1fr;
   }
 
