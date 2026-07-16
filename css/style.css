@@ -336,12 +336,35 @@ input[type="reset"]:hover {
 
 /* ===== 공통 히어로 헤더 (signUp / myProfile / myHoliday) ===== */
 .hero {
+  position: relative;
   text-align: center;
   padding: 34px 24px;
   margin: 0 auto 24px auto;
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
   border-radius: 16px;
   box-shadow: 0 16px 32px var(--color-shadow-strong);
+}
+
+.home-link {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.home-link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(-2px);
 }
 
 /* 폼 폭에 맞춘 좁은 히어로 (signUp) */
