@@ -76,10 +76,28 @@
       </article>
 
       <h2>이달의 베스트 컷 📸</h2>
-      <figure class="best-cut">
-        <img src="../media/photo3.jpg" alt="라스베가스 스트립 야경">
-        <figcaption>라스베가스 스트립의 화려한 야경 (2024년 촬영) — 더 많은 사진은 <a href="myTrip.html">나의 여행 앨범</a>에서 확인하세요.</figcaption>
-      </figure>
+      <div class="carousel" id="bestCut">
+        <div class="carousel-slides">
+          <figure class="carousel-slide">
+            <img src="../media/photo1.jpg" alt="뉴욕 스카이라인">
+            <figcaption>뉴욕의 화려한 스카이라인 (2024년 촬영)</figcaption>
+          </figure>
+          <figure class="carousel-slide">
+            <img src="../media/photo2.jpg" alt="LA 다운타운 야경">
+            <figcaption>LA 다운타운의 밤 (2020년 촬영)</figcaption>
+          </figure>
+          <figure class="carousel-slide">
+            <img src="../media/photo3.jpg" alt="라스베가스 스트립 야경">
+            <figcaption>라스베가스 스트립의 화려한 야경 (2024년 촬영)</figcaption>
+          </figure>
+        </div>
+        <div class="carousel-dots">
+          <button class="carousel-dot" type="button" aria-label="1번째 사진"></button>
+          <button class="carousel-dot" type="button" aria-label="2번째 사진"></button>
+          <button class="carousel-dot" type="button" aria-label="3번째 사진"></button>
+        </div>
+        <p class="carousel-hint">더 많은 사진은 <a href="myTrip.html">나의 여행 앨범</a>에서 확인하세요.</p>
+      </div>
     </main>
 
     <div class="side-column">
@@ -124,5 +142,6 @@
   <script src="../script/darkMode.js"></script>
   <script src="../script/indexStats.js"></script>
   <script src="../script/greetingClock.js"></script>
+  <script src="../script/carousel.js"></script>
 </body>
 </html>
