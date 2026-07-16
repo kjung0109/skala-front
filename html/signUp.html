@@ -51,13 +51,13 @@
         <div class="email-row">
           <input type="text" id="userEmail" name="userEmail" placeholder="example">
           <span class="email-at">@</span>
-          <select id="emailDomain" name="emailDomain">
+          <select id="emailDomain" name="emailDomain" aria-label="이메일 도메인 선택">
             <option value="direct">직접 입력</option>
             <option value="naver.com">naver.com</option>
             <option value="gmail.com">gmail.com</option>
             <option value="daum.net">daum.net</option>
           </select>
-          <input type="text" id="customDomain" name="customDomain" placeholder="도메인 입력 (예: mycompany.com)">
+          <input type="text" id="customDomain" name="customDomain" aria-label="이메일 도메인 직접 입력" placeholder="도메인 입력 (예: mycompany.com)">
         </div>
         <small id="userEmail-feedback" class="field-feedback"></small>
       </div>
