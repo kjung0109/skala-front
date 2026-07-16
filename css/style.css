@@ -375,6 +375,22 @@ input[type="reset"]:hover {
   max-width: 480px;
 }
 
+/* 히어로 인사말 + 실시간 시계 (index.html) */
+.hero-clock {
+  width: fit-content;
+  margin: 16px auto 0;
+  padding: 8px 18px;
+  background-color: rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  color: #ffffff;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-clock #clock {
+  font-weight: 700;
+}
+
 /* ===== 회원가입 폼 레이아웃 (signUp.html) ===== */
 .signup-form {
   max-width: 520px;
