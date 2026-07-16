@@ -957,6 +957,13 @@ button:hover {
   margin-top: 0;
 }
 
+/* ===== 실시간 날씨 상태 ===== */
+.weather-condition {
+  margin: 8px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
 /* ===== 이달의 베스트 컷 캐러셀 (index.html) ===== */
 .carousel-slides {
   position: relative;

@@ -1,5 +1,39 @@
 import { cityData, fetchWeather } from "./weatherAPI.js";
 
+// WMO 날씨 코드를 아이콘과 설명으로 변환 (is_day: 1이면 낮, 0이면 밤)
+function describeWeather(code, isDay) {
+  const clearIcon = isDay ? "☀️" : "🌙";
+  const table = {
+    0: { icon: clearIcon, text: "맑음" },
+    1: { icon: isDay ? "🌤️" : "🌙", text: "대체로 맑음" },
+    2: { icon: "⛅", text: "구름 조금" },
+    3: { icon: "☁️", text: "흐림" },
+    45: { icon: "🌫️", text: "안개" },
+    48: { icon: "🌫️", text: "짙은 안개" },
+    51: { icon: "🌦️", text: "약한 이슬비" },
+    53: { icon: "🌦️", text: "이슬비" },
+    55: { icon: "🌦️", text: "강한 이슬비" },
+    61: { icon: "🌧️", text: "약한 비" },
+    63: { icon: "🌧️", text: "비" },
+    65: { icon: "🌧️", text: "강한 비" },
+    66: { icon: "🌧️", text: "어는 비" },
+    67: { icon: "🌧️", text: "강한 어는 비" },
+    71: { icon: "🌨️", text: "약한 눈" },
+    73: { icon: "❄️", text: "눈" },
+    75: { icon: "❄️", text: "강한 눈" },
+    77: { icon: "🌨️", text: "싸락눈" },
+    80: { icon: "🌦️", text: "약한 소나기" },
+    81: { icon: "🌦️", text: "소나기" },
+    82: { icon: "⛈️", text: "강한 소나기" },
+    85: { icon: "🌨️", text: "소나기눈" },
+    86: { icon: "🌨️", text: "강한 소나기눈" },
+    95: { icon: "⛈️", text: "뇌우" },
+    96: { icon: "⛈️", text: "우박 동반 뇌우" },
+    99: { icon: "⛈️", text: "강한 우박 뇌우" },
+  };
+  return table[code] || { icon: "🌡️", text: "정보 없음" };
+}
+
 const citySelect = document.getElementById("citySelect");
 const weatherBox = document.getElementById("weather-box");
 const worldtimeBox = document.getElementById("worldtime-box");
@@ -15,9 +49,11 @@ async function showWeather(cityKey) {
   try {
     const current = await fetchWeather(city.lat, city.lon);
     const [localDate, localTime] = current.time.split("T");
+    const sky = describeWeather(current.weather_code, current.is_day);
 
     weatherBox.innerHTML =
       "<p><strong>📌 " + city.label + " 실시간 날씨</strong></p>" +
+      "<p class=\"weather-condition\">" + sky.icon + " " + sky.text + "</p>" +
       "<ul>" +
       "<li>현재 기온: " + current.temperature_2m + "°C</li>" +
       "<li>현재 습도: " + current.relative_humidity_2m + "%</li>" +
