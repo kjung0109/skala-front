@@ -131,10 +131,19 @@
       </aside>
 
       <section class="game-section">
-        <h2>미니 게임 🎮</h2>
-        <button onclick="startUpDownGame()">업다운 게임</button>
-        <button onclick="startGradeCalculator()">성적 계산기</button>
-        <button onclick="showMyBag()">내 가방 보기</button>
+        <h2>미니 게임 <span class="game-emoji" aria-hidden="true">🎮</span></h2>
+        <button class="game-btn" onclick="startUpDownGame()">
+          <span class="game-btn-icon" aria-hidden="true">🎯</span>
+          <span class="game-btn-label">업다운 게임</span>
+        </button>
+        <button class="game-btn" onclick="startGradeCalculator()">
+          <span class="game-btn-icon" aria-hidden="true">📊</span>
+          <span class="game-btn-label">성적 계산기</span>
+        </button>
+        <button class="game-btn" onclick="showMyBag()">
+          <span class="game-btn-icon" aria-hidden="true">🎒</span>
+          <span class="game-btn-label">내 가방 보기</span>
+        </button>
       </section>
     </div>
   </div>
