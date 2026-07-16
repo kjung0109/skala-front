@@ -1491,6 +1491,48 @@ button:hover {
   color: var(--color-text-muted);
 }
 
+/* 지금 진행 중인 일정 강조 */
+.today-schedule li.is-now {
+  background-color: var(--color-row-hover);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary) inset;
+}
+
+.ts-now-badge {
+  flex: 0 0 auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+}
+
+.ts-now-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: nowPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes nowPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-now-badge::before {
+    animation: none;
+  }
+}
+
 .today-schedule-more {
   margin: 14px 0 0;
   text-align: right;

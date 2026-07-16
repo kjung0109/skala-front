@@ -28,12 +28,21 @@ document.addEventListener("DOMContentLoaded", async function () {
       return;
     }
 
+    const nowMinutes = now.getHours() * 60 + now.getMinutes();
+
     listEl.innerHTML = blocks
       .map(function (b) {
         const time = b.start + (b.end ? "~" + b.end : "");
+        const isNow =
+          b.end &&
+          toMinutes(b.start) <= nowMinutes &&
+          nowMinutes < toMinutes(b.end);
         return (
-          '<li><span class="ts-time">' + time + "</span>" +
-          '<span class="ts-act">' + b.activity + "</span></li>"
+          '<li class="ts-item' + (isNow ? " is-now" : "") + '">' +
+          '<span class="ts-time">' + time + "</span>" +
+          '<span class="ts-act">' + b.activity + "</span>" +
+          (isNow ? '<span class="ts-now-badge">NOW</span>' : "") +
+          "</li>"
         );
       })
       .join("");
@@ -43,6 +52,12 @@ document.addEventListener("DOMContentLoaded", async function () {
       '<li class="ts-empty">일정을 불러오지 못했습니다.</li>';
   }
 });
+
+// "HH:MM" 을 분 단위 숫자로 변환
+function toMinutes(t) {
+  const parts = t.split(":");
+  return Number(parts[0]) * 60 + Number(parts[1]);
+}
 
 // 시간표 표에서 오늘 열의 일정을 (시간·활동) 블록으로 추출
 function extractDayBlocks(doc, month, date) {
