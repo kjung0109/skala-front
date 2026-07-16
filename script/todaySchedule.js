@@ -33,12 +33,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     listEl.innerHTML = blocks
       .map(function (b) {
         const time = b.start + (b.end ? "~" + b.end : "");
-        const isNow =
-          b.end &&
-          toMinutes(b.start) <= nowMinutes &&
-          nowMinutes < toMinutes(b.end);
+        const startMin = toMinutes(b.start);
+        const endMin = b.end ? toMinutes(b.end) : startMin;
+        const isNow = b.end && startMin <= nowMinutes && nowMinutes < endMin;
+        const isPast = b.end && endMin <= nowMinutes;
+        const cls =
+          "ts-item" + (isNow ? " is-now" : "") + (isPast ? " is-past" : "");
         return (
-          '<li class="ts-item' + (isNow ? " is-now" : "") + '">' +
+          '<li class="' + cls + '">' +
           '<span class="ts-time">' + time + "</span>" +
           '<span class="ts-icon" aria-hidden="true">' + activityIcon(b.activity) + "</span>" +
           '<span class="ts-act">' + b.activity + "</span>" +

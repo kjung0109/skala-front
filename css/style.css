@@ -1522,11 +1522,29 @@ button:hover {
 
 .today-schedule .ts-time {
   flex: 0 0 auto;
-  min-width: 92px;
+  align-self: center;
+  min-width: 84px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-align: center;
   font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--color-heading-accent);
+  font-size: 0.82rem;
+  color: var(--color-primary-dark);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
   font-variant-numeric: tabular-nums;
+}
+
+/* 진행 중인 일정은 시간 배지를 강조 */
+.today-schedule li.is-now .ts-time {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  border-color: transparent;
+}
+
+/* 이미 지난 일정은 흐리게 */
+.today-schedule li.is-past {
+  opacity: 0.5;
 }
 
 .today-schedule .ts-icon {
