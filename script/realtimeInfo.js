@@ -182,11 +182,21 @@ citySelect.addEventListener("change", function () {
   showWeather(selectedCity);
 });
 
-// '내 위치' 버튼: 실시간 좌표로 현재 위치 날씨 조회
+// '내 위치' 버튼: 실시간 좌표로 현재 위치 날씨 조회 (조회 중 로딩 상태 표시)
 if (myLocationBtn) {
-  myLocationBtn.addEventListener("click", function () {
+  const locationLabel = myLocationBtn.querySelector(".my-location-label");
+
+  myLocationBtn.addEventListener("click", async function () {
     citySelect.value = "";
-    showWeather("mylocation");
+    myLocationBtn.classList.add("locating");
+    myLocationBtn.disabled = true;
+    if (locationLabel) locationLabel.textContent = "확인 중...";
+
+    await showWeather("mylocation");
+
+    if (locationLabel) locationLabel.textContent = "내 위치";
+    myLocationBtn.classList.remove("locating");
+    myLocationBtn.disabled = false;
   });
 }
 

@@ -127,7 +127,10 @@
             <option value="tokyo">일본 도쿄 JP</option>
             <option value="paris">프랑스 파리 FR</option>
           </select>
-          <button type="button" id="myLocationBtn" class="my-location-btn">📍 내 위치</button>
+          <button type="button" id="myLocationBtn" class="my-location-btn">
+            <span class="pin" aria-hidden="true">📍</span>
+            <span class="my-location-label">내 위치</span>
+          </button>
         </div>
         <div id="weather-box" aria-live="polite">
           <p>도시를 선택하면 실시간 날씨 정보가 표시됩니다.</p>
