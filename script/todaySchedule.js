@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         return (
           '<li class="ts-item' + (isNow ? " is-now" : "") + '">' +
           '<span class="ts-time">' + time + "</span>" +
+          '<span class="ts-icon" aria-hidden="true">' + activityIcon(b.activity) + "</span>" +
           '<span class="ts-act">' + b.activity + "</span>" +
           (isNow ? '<span class="ts-now-badge">NOW</span>' : "") +
           "</li>"
@@ -52,6 +53,21 @@ document.addEventListener("DOMContentLoaded", async function () {
       '<li class="ts-empty">일정을 불러오지 못했습니다.</li>';
   }
 });
+
+// 활동 내용의 키워드로 대표 아이콘을 결정 (구체적인 키워드부터 검사)
+function activityIcon(text) {
+  if (/점심/.test(text)) return "🍽️";
+  if (/휴일/.test(text)) return "☕";
+  if (/저녁|휴식/.test(text)) return "🌙";
+  if (/면접/.test(text)) return "🎤";
+  if (/인적성|모의검사|검사|시험/.test(text)) return "📝";
+  if (/GitHub|깃|제출/.test(text)) return "🐙";
+  if (/실습/.test(text)) return "💻";
+  if (/Python/i.test(text)) return "🐍";
+  if (/HTML|CSS|JavaScript/.test(text)) return "📘";
+  if (/분석|직무|기업|점검|정리|준비|키워드|확인/.test(text)) return "🔍";
+  return "📌";
+}
 
 // "HH:MM" 을 분 단위 숫자로 변환
 function toMinutes(t) {

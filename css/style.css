@@ -1482,6 +1482,12 @@ button:hover {
   font-variant-numeric: tabular-nums;
 }
 
+.today-schedule .ts-icon {
+  flex: 0 0 auto;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
 .today-schedule .ts-act {
   flex: 1;
 }
