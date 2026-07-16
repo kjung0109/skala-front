@@ -953,6 +953,96 @@ button:hover {
   text-align: center;
 }
 
+/* ===== 미니 게임 버튼 애니메이션 ===== */
+.game-emoji {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: gameWiggle 2.6s ease-in-out infinite;
+}
+
+@keyframes gameWiggle {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  91% { transform: rotate(-14deg); }
+  94% { transform: rotate(12deg); }
+  97% { transform: rotate(-6deg); }
+}
+
+.game-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* 로드 시 순차 등장 */
+  opacity: 0;
+  animation: gameBtnIn 0.5s ease forwards;
+}
+
+.game-section .game-btn:nth-of-type(1) { animation-delay: 0.05s; }
+.game-section .game-btn:nth-of-type(2) { animation-delay: 0.15s; }
+.game-section .game-btn:nth-of-type(3) { animation-delay: 0.25s; }
+
+@keyframes gameBtnIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.game-btn-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.game-btn:hover .game-btn-icon {
+  animation: gameIconBounce 0.5s ease;
+}
+
+@keyframes gameIconBounce {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  30% { transform: translateY(-5px) rotate(-8deg); }
+  60% { transform: translateY(-2px) rotate(6deg); }
+}
+
+/* 호버 시 빛 스윕 효과 */
+.game-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.game-btn:hover::after {
+  animation: gameShine 0.7s ease;
+}
+
+@keyframes gameShine {
+  from { left: -75%; }
+  to { left: 130%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-emoji,
+  .game-btn {
+    animation: none;
+    opacity: 1;
+  }
+  .game-btn:hover .game-btn-icon,
+  .game-btn:hover::after {
+    animation: none;
+  }
+}
+
 .content-layout main h2,
 .side-column aside h2,
 .side-column .game-section h2 {
