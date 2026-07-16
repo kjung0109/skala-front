@@ -2,6 +2,7 @@
 :root {
   --color-bg: #f7f8fa;
   --color-text: #2b2b2b;
+  --color-text-muted: #6b7280;
   --color-heading: #1a2b4c;
   --color-heading-accent: #24479c;
   --color-primary: #3a6df0;
@@ -26,6 +27,7 @@
 :root[data-theme="dark"] {
   --color-bg: #0f1420;
   --color-text: #dfe4f0;
+  --color-text-muted: #9aa4bd;
   --color-heading: #f3f5fb;
   --color-heading-accent: #9db4f5;
   --color-primary: #5b8dff;
@@ -955,6 +957,161 @@ button:hover {
 .side-column aside h2,
 .side-column .game-section h2 {
   margin-top: 0;
+}
+
+/* ===== 실시간 정보 위젯 ===== */
+.live-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-valid);
+  box-shadow: 0 0 0 0 var(--color-valid);
+  animation: livePulse 1.8s infinite;
+}
+
+@keyframes livePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(46, 125, 50, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+  }
+}
+
+.location-badge {
+  display: inline-block;
+  margin: 0 0 4px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-primary-dark);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot {
+    animation: none;
+  }
+}
+
+.info-city {
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6b7a90, #97a6ba);
+  box-shadow: 0 4px 10px var(--color-shadow);
+}
+
+.weather-main-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.weather-main-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* 날씨 상태·낮밤에 따른 배경 그라데이션 */
+.weather-main.sky-clear-day {
+  background: linear-gradient(135deg, #4a90e2, #67c1f5);
+}
+.weather-main.sky-clear-night {
+  background: linear-gradient(135deg, #1e2a52, #3a4780);
+}
+.weather-main.sky-cloud {
+  background: linear-gradient(135deg, #6b7a90, #97a6ba);
+}
+.weather-main.sky-fog {
+  background: linear-gradient(135deg, #8a94a3, #aeb6c2);
+}
+.weather-main.sky-rain {
+  background: linear-gradient(135deg, #445c7a, #6b8299);
+}
+.weather-main.sky-snow {
+  background: linear-gradient(135deg, #5d86b3, #9cbfe0);
+}
+.weather-main.sky-storm {
+  background: linear-gradient(135deg, #34344e, #565676);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 8px;
+  border-radius: 10px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+}
+
+.stat-tile-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.stat-tile-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.stat-tile-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.time-display {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.time-big {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.time-date {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.time-zone {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
 }
 
 /* ===== 이달의 베스트 컷 캐러셀 (index.html) ===== */
