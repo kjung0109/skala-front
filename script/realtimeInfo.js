@@ -47,6 +47,7 @@ function weatherCategory(code, isDay) {
 }
 
 const citySelect = document.getElementById("citySelect");
+const myLocationBtn = document.getElementById("myLocationBtn");
 const weatherBox = document.getElementById("weather-box");
 const worldtimeBox = document.getElementById("worldtime-box");
 
@@ -83,13 +84,45 @@ function startLocalClock(timezone) {
   clockTimer = setInterval(tick, 1000);
 }
 
-async function showWeather(cityKey) {
-  const city = cityData[cityKey];
+// 브라우저 Geolocation으로 현재 좌표를 Promise로 반환
+function getPosition() {
+  return new Promise(function (resolve, reject) {
+    if (!("geolocation" in navigator)) {
+      reject(new Error("geolocation 미지원"));
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(resolve, reject, {
+      enableHighAccuracy: false,
+      timeout: 10000,
+      maximumAge: 600000,
+    });
+  });
+}
 
-  weatherBox.innerHTML =
-    "<p><strong>📌 " + city.label + "</strong></p>" +
-    "<p>실시간 날씨 로딩 중... ⏳</p>";
+async function showWeather(cityKey) {
+  weatherBox.innerHTML = "<p>실시간 날씨 로딩 중... ⏳</p>";
   worldtimeBox.innerHTML = "<p>현지 시각 불러오는 중... ⏳</p>";
+
+  let city;
+  if (cityKey === "mylocation") {
+    try {
+      const position = await getPosition();
+      city = {
+        label: "내 위치",
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      };
+    } catch (error) {
+      console.error("위치를 가져오지 못했습니다:", error);
+      clearInterval(clockTimer);
+      weatherBox.innerHTML =
+        "<p>⚠️ 위치 정보를 사용할 수 없습니다.<br>브라우저에서 위치 접근을 허용한 뒤 다시 선택해 주세요.</p>";
+      worldtimeBox.innerHTML = "<p>⚠️ 현지 시각을 불러오지 못했습니다.</p>";
+      return;
+    }
+  } else {
+    city = cityData[cityKey];
+  }
 
   try {
     const current = await fetchWeather(city.lat, city.lon);
@@ -148,6 +181,14 @@ citySelect.addEventListener("change", function () {
 
   showWeather(selectedCity);
 });
+
+// '내 위치' 버튼: 실시간 좌표로 현재 위치 날씨 조회
+if (myLocationBtn) {
+  myLocationBtn.addEventListener("click", function () {
+    citySelect.value = "";
+    showWeather("mylocation");
+  });
+}
 
 // 페이지 로드 시 기본 도시(서울) 날씨를 자동으로 표시
 const defaultCity = "seoul";

@@ -1493,6 +1493,29 @@ button:hover {
   }
 }
 
+/* 날씨 조회: 도시 선택 + 내 위치 버튼 */
+.weather-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.weather-controls select {
+  flex: 1 1 150px;
+  min-width: 0;
+  max-width: none;
+  margin-top: 0;
+}
+
+.my-location-btn {
+  flex: 0 0 auto;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
 .info-city {
   margin: 0 0 10px;
   font-weight: 700;
