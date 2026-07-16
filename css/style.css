@@ -125,15 +125,13 @@ a:hover {
 
 /* ===== 카드 공통 상단 그라데이션 바 ===== */
 .side-column aside,
-.side-column .game-section,
-.content-layout main {
+.side-column .game-section {
   position: relative;
   overflow: hidden;
 }
 
 .side-column aside::before,
-.side-column .game-section::before,
-.content-layout main::before {
+.side-column .game-section::before {
   content: "";
   position: absolute;
   top: 0;
@@ -905,17 +903,19 @@ button:hover {
 .content-layout {
   display: flex;
   gap: 24px;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
-.content-layout main {
+.main-column {
   flex: 2.2;
   min-width: 0;
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 16px;
-  box-shadow: 0 4px 12px var(--color-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-column .section-card {
+  margin-bottom: 0;
 }
 
 .side-column {
