@@ -1447,6 +1447,85 @@ button:hover {
   }
 }
 
+/* ===== 오늘의 주요 소식 (날짜 중심 changelog, index.html) ===== */
+.news-feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-item {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.news-date {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: 42px;
+  padding-top: 1px;
+  text-align: right;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 세로 레일 + 점 (레일 폭 기준 50%로 점을 얹어 항상 중앙 정렬) */
+.news-rail {
+  flex: 0 0 auto;
+  position: relative;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.news-rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 3px;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-primary);
+}
+
+.news-body {
+  flex: 1;
+  min-width: 0;
+  padding: 0 0 18px 4px;
+}
+
+.news-item:last-child .news-body {
+  padding-bottom: 0;
+}
+
+.news-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 4px;
+  font-size: 0.98rem;
+  color: var(--color-heading);
+}
+
+.news-ic {
+  flex: 0 0 auto;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.news-desc {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
 /* ===== 오늘 일정 (index.html) ===== */
 .today-schedule-day {
   margin: 0 0 14px;
