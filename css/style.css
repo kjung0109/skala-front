@@ -1132,6 +1132,56 @@ button:hover {
   transform: none;
 }
 
+/* ===== 비밀번호 강도 미터 (signUp.html) ===== */
+.pw-strength {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.pw-strength[hidden] {
+  display: none;
+}
+
+.pw-strength-bar {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.pw-strength-bar span {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background-color: var(--color-reset-bg);
+  transition: background-color 0.25s ease;
+}
+
+.pw-strength-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  min-width: 56px;
+  text-align: right;
+}
+
+.pw-strength[data-level="1"] .pw-strength-bar span:nth-child(-n + 1),
+.pw-strength[data-level="2"] .pw-strength-bar span:nth-child(-n + 2),
+.pw-strength[data-level="3"] .pw-strength-bar span:nth-child(-n + 3),
+.pw-strength[data-level="4"] .pw-strength-bar span:nth-child(-n + 4) {
+  background-color: var(--pw-color);
+}
+
+.pw-strength[data-level="1"] { --pw-color: var(--color-invalid); }
+.pw-strength[data-level="2"] { --pw-color: #e0993a; }
+.pw-strength[data-level="3"] { --pw-color: var(--color-primary); }
+.pw-strength[data-level="4"] { --pw-color: var(--color-valid); }
+
+.pw-strength[data-level="1"] .pw-strength-label { color: var(--color-invalid); }
+.pw-strength[data-level="2"] .pw-strength-label { color: #e0993a; }
+.pw-strength[data-level="3"] .pw-strength-label { color: var(--color-primary); }
+.pw-strength[data-level="4"] .pw-strength-label { color: var(--color-valid); }
+
 /* ===== 기술 스택 게이지 (myProfile.html) ===== */
 .skill-intro {
   margin: 0 0 18px;
