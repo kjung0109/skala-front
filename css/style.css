@@ -17,6 +17,7 @@
   --color-table-border: #d0d7e2;
   --color-row-alt: #f4f7fd;
   --color-row-hover: #dfe8fb;
+  --color-today-tint: rgba(232, 145, 43, 0.16);
   --color-shadow: rgba(26, 43, 76, 0.08);
   --color-shadow-strong: rgba(26, 43, 76, 0.2);
   --color-invalid: #d32f2f;
@@ -42,6 +43,7 @@
   --color-table-border: #2b3450;
   --color-row-alt: #202a42;
   --color-row-hover: #2b3757;
+  --color-today-tint: rgba(240, 166, 65, 0.22);
   --color-shadow: rgba(0, 0, 0, 0.4);
   --color-shadow-strong: rgba(0, 0, 0, 0.6);
   --color-invalid: #ff6b6b;
@@ -355,6 +357,38 @@ tbody tr:nth-child(even) td {
 /* 셀(칸) hover 강조 */
 tbody td:hover {
   background-color: var(--color-row-hover);
+}
+
+/* ===== 오늘 요일 강조 (myClass.html) ===== */
+thead th.today-head {
+  background: linear-gradient(135deg, #efa53c, #e0821f);
+}
+
+.today-badge {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* 배경색 위에 겹치는 오버레이라 zebra 줄무늬 위에서도 균일하게 보임 */
+td.today-col,
+tbody th.today-col {
+  background-image: linear-gradient(
+    var(--color-today-tint),
+    var(--color-today-tint)
+  );
+}
+
+.today-note {
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background-color: var(--color-aside-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-heading);
+  font-size: 0.9rem;
 }
 
 /* ===== 회원가입 폼 (signUp.html) ===== */
