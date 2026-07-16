@@ -1493,6 +1493,65 @@ button:hover {
   }
 }
 
+/* 날씨 조회: 도시 선택 + 내 위치 버튼 (세로 배치) */
+.weather-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.weather-controls select {
+  width: 100%;
+  max-width: none;
+  margin-top: 0;
+}
+
+.my-location-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+}
+
+.my-location-btn .pin {
+  display: inline-block;
+}
+
+.my-location-btn:hover:not(:disabled) .pin {
+  animation: pinBounce 0.6s ease;
+}
+
+.my-location-btn:disabled {
+  cursor: progress;
+  opacity: 0.85;
+}
+
+.my-location-btn.locating .pin {
+  animation: pinPulse 1s ease-in-out infinite;
+}
+
+@keyframes pinBounce {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-5px); }
+  60% { transform: translateY(-2px); }
+}
+
+@keyframes pinPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.6; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .my-location-btn:hover:not(:disabled) .pin,
+  .my-location-btn.locating .pin {
+    animation: none;
+  }
+}
+
 .info-city {
   margin: 0 0 10px;
   font-weight: 700;
