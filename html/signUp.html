@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SKALA-FRONT 회원가입 페이지 - 실시간 입력 검증으로 간편하게 가입하세요.">
   <title>회원가입</title>
   <link rel="icon" type="image/svg+xml" href="../media/favicon.svg">
   <script>
@@ -19,6 +20,7 @@
   <button id="theme-toggle" class="theme-toggle" aria-label="다크모드 전환">🌙</button>
   <div class="container">
   <header class="hero hero-narrow">
+    <a href="index.html" class="home-link">← 홈으로</a>
     <div class="hero-icon">📝</div>
     <h1>회원가입</h1>
     <p>SKALA-FRONT의 멤버가 되어보세요.<br>아래 정보를 입력하고 함께 시작해요! 🚀</p>
@@ -49,13 +51,13 @@
         <div class="email-row">
           <input type="text" id="userEmail" name="userEmail" placeholder="example">
           <span class="email-at">@</span>
-          <select id="emailDomain" name="emailDomain">
+          <select id="emailDomain" name="emailDomain" aria-label="이메일 도메인 선택">
             <option value="direct">직접 입력</option>
             <option value="naver.com">naver.com</option>
             <option value="gmail.com">gmail.com</option>
             <option value="daum.net">daum.net</option>
           </select>
-          <input type="text" id="customDomain" name="customDomain" placeholder="도메인 입력 (예: mycompany.com)">
+          <input type="text" id="customDomain" name="customDomain" aria-label="이메일 도메인 직접 입력" placeholder="도메인 입력 (예: mycompany.com)">
         </div>
         <small id="userEmail-feedback" class="field-feedback"></small>
       </div>
