@@ -38,6 +38,39 @@ const citySelect = document.getElementById("citySelect");
 const weatherBox = document.getElementById("weather-box");
 const worldtimeBox = document.getElementById("worldtime-box");
 
+let clockTimer;
+
+// 선택한 도시의 시간대(IANA)를 이용해 현지 시각을 매초 갱신
+function startLocalClock(timezone) {
+  clearInterval(clockTimer);
+
+  const bigEl = worldtimeBox.querySelector(".time-big");
+  const dateEl = worldtimeBox.querySelector(".time-date");
+  if (!bigEl || !dateEl) return;
+
+  const timeFmt = new Intl.DateTimeFormat("en-GB", {
+    timeZone: timezone,
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+  const dateFmt = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: timezone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+
+  function tick() {
+    const now = new Date();
+    bigEl.textContent = timeFmt.format(now);
+    dateEl.textContent = dateFmt.format(now);
+  }
+
+  tick();
+  clockTimer = setInterval(tick, 1000);
+}
+
 async function showWeather(cityKey) {
   const city = cityData[cityKey];
 
@@ -77,8 +110,12 @@ async function showWeather(cityKey) {
       "<span class=\"time-date\">" + localDate + "</span>" +
       "</div>" +
       "<p class=\"time-zone\">🌐 " + current.timezone + "</p>";
+
+    // API가 준 시간대로 현지 시각을 실시간 갱신
+    startLocalClock(current.timezone);
   } catch (error) {
     console.error("날씨 정보를 불러오지 못했습니다:", error);
+    clearInterval(clockTimer);
     weatherBox.innerHTML =
       "<p>⚠️ 날씨 정보를 불러오지 못했습니다.<br>네트워크 상태를 확인한 뒤 다시 선택해 주세요.</p>";
     worldtimeBox.innerHTML =
@@ -90,6 +127,7 @@ citySelect.addEventListener("change", function () {
   const selectedCity = citySelect.value;
 
   if (!selectedCity) {
+    clearInterval(clockTimer);
     weatherBox.innerHTML = "<p>도시를 선택하면 실시간 날씨 정보가 표시됩니다.</p>";
     worldtimeBox.innerHTML = "<p>도시를 선택하면 현지 시각이 표시됩니다.</p>";
     return;
