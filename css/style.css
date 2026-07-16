@@ -1085,6 +1085,19 @@ button:hover {
   margin-top: 0;
 }
 
+/* ===== 스크롤 등장 애니메이션 ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 /* ===== 실시간 정보 위젯 ===== */
 .live-header {
   display: flex;
