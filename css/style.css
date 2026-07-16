@@ -818,6 +818,22 @@ button:hover {
   transform: scale(1.12) rotate(12deg);
 }
 
+/* ===== 스탯 요약 스트립 (index.html) ===== */
+.stats-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 20px;
+  margin-bottom: 24px;
+  font-size: 0.85em;
+  color: var(--color-heading-accent);
+}
+
+.stat-item strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
 /* ===== 바로가기 카드 그리드 (index.html) ===== */
 .nav-cards {
   display: grid;
