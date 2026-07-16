@@ -456,7 +456,7 @@ input[type="reset"]:hover {
 .hero {
   position: relative;
   text-align: center;
-  padding: 34px 24px;
+  padding: 42px 26px;
   margin: 0 auto 24px auto;
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
   border-radius: 16px;
@@ -505,7 +505,7 @@ input[type="reset"]:hover {
 .hero h1 {
   color: #ffffff;
   border-bottom: none;
-  margin: 0 0 10px 0;
+  margin: 0 0 14px 0;
   padding-bottom: 0;
   animation: fadeIn 1s ease;
 }
@@ -514,22 +514,91 @@ input[type="reset"]:hover {
   color: rgba(255, 255, 255, 0.92);
   margin: 0 auto;
   max-width: 480px;
+  line-height: 1.7;
 }
 
 /* 히어로 인사말 + 실시간 시계 (index.html) */
-.hero-clock {
-  width: fit-content;
-  margin: 16px auto 0;
-  padding: 8px 18px;
-  background-color: rgba(255, 255, 255, 0.18);
-  border-radius: 20px;
+/* index hero: 좌우 스플릿 레이아웃 (인사말 + 상태 카드) */
+.hero-split {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px 32px;
+}
+
+.hero-main {
+  flex: 1 1 320px;
+  min-width: 0;
+  text-align: left;
+}
+
+/* .hero p 규칙(margin:0 auto)을 이기도록 .hero-split로 스코프 */
+.hero-split .hero-eyebrow {
+  margin: 0 0 12px;
+  max-width: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-split .hero-lead {
+  margin: 0;
+  max-width: 460px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.7;
+}
+
+.hero-status {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  min-width: 200px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 14px;
   color: #ffffff;
-  font-weight: 500;
+}
+
+.hero-status-clock {
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 
-.hero-clock #clock {
-  font-weight: 700;
+.hero-status-date {
+  margin-top: 7px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-status-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.28);
+  margin: 14px 0;
+}
+
+.hero-status .hero-visit {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.82);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-status .hero-visit:empty {
+  display: none;
+}
+
+/* 방문 정보가 없으면(첫 방문) 구분선도 숨김 */
+.hero-status:has(.hero-visit:empty) .hero-status-divider {
+  display: none;
 }
 
 /* ===== 회원가입 폼 레이아웃 (signUp.html) ===== */
@@ -1670,6 +1739,10 @@ input.valid {
     width: 40px;
     height: 40px;
     font-size: 1.1em;
+  }
+
+  .hero-status {
+    width: 100%;
   }
 
   .back-to-top {

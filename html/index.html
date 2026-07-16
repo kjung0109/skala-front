@@ -19,13 +19,18 @@
 <body>
   <button id="theme-toggle" class="theme-toggle" aria-label="다크모드 전환">🌙</button>
   <div class="container">
-  <header class="hero">
-    <div class="hero-icon">🚀</div>
-    <h1>권정의 유니버스</h1>
-    <p>저의 일상과 학습 내용, 여행 기록을 담은 Hub 페이지입니다.</p>
-    <p class="hero-clock">
-      <span id="greeting">환영합니다</span> · 지금은 <span id="clock">--:--:--</span>
-    </p>
+  <header class="hero hero-split">
+    <div class="hero-main">
+      <p class="hero-eyebrow">🚀 권정의 유니버스</p>
+      <h1 class="hero-greeting"><span id="greeting">환영합니다</span></h1>
+      <p class="hero-lead">저의 일상과 학습 내용, 여행 기록을 담은 Hub 페이지입니다.</p>
+    </div>
+    <div class="hero-status">
+      <span class="hero-status-clock" id="clock">--:--:--</span>
+      <span class="hero-status-date" id="hero-date"></span>
+      <span class="hero-status-divider" aria-hidden="true"></span>
+      <span class="hero-visit" id="hero-visit"></span>
+    </div>
   </header>
 
   <section class="stats-strip" aria-label="사이트 요약">
@@ -156,6 +161,7 @@
   <script src="../script/darkMode.js"></script>
   <script src="../script/scrollReveal.js"></script>
   <script src="../script/backToTop.js"></script>
+  <script src="../script/visitCounter.js"></script>
   <script src="../script/indexStats.js"></script>
   <script src="../script/greetingClock.js"></script>
   <script src="../script/carousel.js"></script>
