@@ -198,13 +198,26 @@ a:hover {
 }
 
 /* ===== 테이블 (myClass.html) ===== */
+/* 좁은 화면에서 표가 짓눌리지 않고 가로 스크롤되도록 감싸는 래퍼 */
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 28px;
+  border-radius: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
+  min-width: 640px;
   margin-bottom: 28px;
   box-shadow: 0 4px 12px var(--color-shadow);
   border-radius: 10px;
   overflow: hidden;
+}
+
+.table-scroll table {
+  margin-bottom: 0;
 }
 
 th,
