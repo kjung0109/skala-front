@@ -1447,6 +1447,169 @@ button:hover {
   }
 }
 
+/* ===== 오늘 일정 (index.html) ===== */
+.today-schedule-day {
+  margin: 0 0 14px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.today-schedule {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.today-schedule li {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background-color: var(--color-aside-bg);
+  border: 1px solid var(--color-border);
+}
+
+/* 타임라인 점 (li 기준). border 2px 포함 실제 너비 16px → 중심이 left+8 */
+.today-schedule li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-primary);
+  z-index: 1;
+}
+
+/* 다음 점까지 잇는 세로 연결선 (점과 동일하게 li 기준 → 항상 정렬) */
+.today-schedule li::after {
+  content: "";
+  position: absolute;
+  left: -17px;
+  top: 50%;
+  width: 2px;
+  height: calc(100% + 8px);
+  background-color: var(--color-border);
+  z-index: 0;
+}
+
+.today-schedule li:last-child::after {
+  display: none;
+}
+
+/* 진행 중인 일정은 점을 채움 */
+.today-schedule li.is-now::before {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-row-hover);
+}
+
+/* 일정 없음/로딩 상태에서는 점·연결선 숨김 */
+.today-schedule:has(.ts-empty) {
+  padding-left: 0;
+}
+.today-schedule li.ts-empty::before,
+.today-schedule li.ts-empty::after {
+  display: none;
+}
+
+.today-schedule .ts-time {
+  flex: 0 0 auto;
+  align-self: center;
+  min-width: 84px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--color-primary-dark);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 진행 중인 일정은 시간 배지를 강조 */
+.today-schedule li.is-now .ts-time {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  border-color: transparent;
+}
+
+/* 이미 지난 일정은 흐리게 */
+.today-schedule li.is-past {
+  opacity: 0.5;
+}
+
+.today-schedule .ts-icon {
+  flex: 0 0 auto;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.today-schedule .ts-act {
+  flex: 1;
+}
+
+.today-schedule .ts-empty {
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+/* 지금 진행 중인 일정 강조 */
+.today-schedule li.is-now {
+  background-color: var(--color-row-hover);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary) inset;
+}
+
+.ts-now-badge {
+  flex: 0 0 auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+}
+
+.ts-now-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: nowPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes nowPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-now-badge::before {
+    animation: none;
+  }
+}
+
+.today-schedule-more {
+  margin: 14px 0 0;
+  text-align: right;
+  font-size: 0.9rem;
+}
+
 /* ===== 실시간 정보 위젯 ===== */
 .live-header {
   display: flex;

@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const note = document.createElement("p");
       note.className = "today-note";
       note.textContent =
-        "📅 오늘(" + todayMonth + "월 " + todayDate + "일 " +
+        "🗓️ 오늘(" + todayMonth + "월 " + todayDate + "일 " +
         weekdays[now.getDay()] + ")은 아래 시간표 기간에 포함되지 않습니다.";
       host.insertBefore(note, firstCard);
     }
