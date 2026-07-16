@@ -818,30 +818,48 @@ button:hover {
   transform: scale(1.12) rotate(12deg);
 }
 
-/* ===== 바로가기 메뉴 Flexbox (index.html) ===== */
-nav ul {
+/* ===== 바로가기 카드 그리드 (index.html) ===== */
+.nav-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.nav-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-  list-style: none;
-  padding: 0;
-}
-
-nav a {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 20px;
-  background-color: var(--color-aside-bg);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 20px 16px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
   color: var(--color-heading);
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px var(--color-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-nav a:hover {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-  color: #ffffff;
+.nav-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: 0 14px 26px var(--color-shadow-strong);
   text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px var(--color-shadow);
+}
+
+.nav-card-icon {
+  font-size: 2em;
+  line-height: 1;
+}
+
+.nav-card-title {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.nav-card-desc {
+  font-size: 0.82em;
+  color: var(--color-heading-accent);
 }
 
 /* ===== 메뉴 하단 구분선 (index.html) ===== */
@@ -990,10 +1008,6 @@ input.valid {
 @media (max-width: 786px) {
   body {
     padding: 16px;
-  }
-
-  nav ul {
-    flex-direction: column;
   }
 
   .content-layout {
