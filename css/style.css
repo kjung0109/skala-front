@@ -123,30 +123,6 @@ a:hover {
   padding: 0 16px;
 }
 
-/* ===== 히어로 헤더 (index.html) ===== */
-header {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-  color: #ffffff;
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 16px 32px var(--color-shadow-strong);
-  margin-bottom: 24px;
-}
-
-header h1 {
-  color: #ffffff;
-  border-bottom: none;
-  margin: 0 0 10px 0;
-  padding-bottom: 0;
-  animation: fadeIn 1s ease;
-}
-
-header p {
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0;
-  max-width: 640px;
-}
-
 /* ===== 카드 공통 상단 그라데이션 바 ===== */
 .side-column aside,
 .side-column .game-section,
@@ -390,6 +366,7 @@ input[type="reset"]:hover {
   border-bottom: none;
   margin: 0 0 10px 0;
   padding-bottom: 0;
+  animation: fadeIn 1s ease;
 }
 
 .hero p {
