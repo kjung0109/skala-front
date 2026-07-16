@@ -1132,6 +1132,63 @@ button:hover {
   transform: none;
 }
 
+/* ===== 기술 스택 게이지 (myProfile.html) ===== */
+.skill-intro {
+  margin: 0 0 18px;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.skill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skill-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 7px;
+}
+
+.skill-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.skill-pct {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.skill-track {
+  height: 10px;
+  border-radius: 999px;
+  background-color: var(--color-reset-bg);
+  overflow: hidden;
+}
+
+.skill-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-fill {
+    transition: none;
+  }
+}
+
 /* ===== 실시간 정보 위젯 ===== */
 .live-header {
   display: flex;
