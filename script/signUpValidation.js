@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const emailDomain = document.getElementById("emailDomain");
   const customDomain = document.getElementById("customDomain");
 
+  const pwStrength = document.getElementById("pwStrength");
+  const pwStrengthLabel = document.getElementById("pwStrengthLabel");
+
   const userIdFeedback = document.getElementById("userId-feedback");
   const userPwFeedback = document.getElementById("userPw-feedback");
   const userNameFeedback = document.getElementById("userName-feedback");
@@ -133,8 +136,44 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
 
+  // 비밀번호 강도 미터 (길이 + 문자 종류 다양성으로 점수 계산)
+  function updatePwStrength() {
+    const value = userPw.value;
+    if (value === "") {
+      pwStrength.hidden = true;
+      return;
+    }
+    pwStrength.hidden = false;
+
+    let score = 0;
+    if (value.length >= 8) score++;
+    if (value.length >= 12) score++;
+    if (/[a-z]/.test(value) && /[A-Z]/.test(value)) score++;
+    if (/\d/.test(value)) score++;
+    if (/[^A-Za-z0-9]/.test(value)) score++;
+
+    let level, label;
+    if (score <= 1) {
+      level = 1;
+      label = "약함";
+    } else if (score === 2) {
+      level = 2;
+      label = "보통";
+    } else if (score <= 4) {
+      level = 3;
+      label = "강함";
+    } else {
+      level = 4;
+      label = "매우 강함";
+    }
+
+    pwStrength.dataset.level = level;
+    pwStrengthLabel.textContent = label;
+  }
+
   userId.addEventListener("input", validateUserId);
   userPw.addEventListener("input", validateUserPw);
+  userPw.addEventListener("input", updatePwStrength);
   userName.addEventListener("input", validateUserName);
   userEmail.addEventListener("input", validateUserEmail);
 
